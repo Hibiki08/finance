@@ -12,3 +12,8 @@
 
 # Composer
 /composer.phar
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
