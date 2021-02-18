@@ -12,7 +12,7 @@ class Transaction
 {
     /**
      * @var int
-     * @ORM\Column(type="integer", name="id")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -20,13 +20,13 @@ class Transaction
 
     /**
      * @var string
-     * @ORM\Column(type="string", name="name", length=255, options={"comment": "Название операции"})
+     * @ORM\Column(type="string", length=255, options={"comment": "Название операции"})
      */
     private $name;
 
     /**
      * @var string
-     * @ORM\Column(type="string", name="comment", length=500, options={"comment": "Комментарий"})
+     * @ORM\Column(type="string", length=500, options={"comment": "Комментарий"})
      */
     private $comment;
 
@@ -39,23 +39,15 @@ class Transaction
 
     /**
      * @var float
-     * @ORM\Column(type="float", name="amount", options={"comment": "сумма в рублях"})
+     * @ORM\Column(type="float", options={"comment": "сумма в рублях"})
      */
     private $amount;
 
     /**
      * @var int
-     * @ORM\Column(type="datetime", name="date", options={"comment": "дата создания операции"})
+     * @ORM\Column(type="datetime", options={"comment": "дата создания операции"})
      */
     private $date;
-
-    /**
-     * @ORM\Column(type="smallint", name="operation_type", options={"comment": "1 - доход; 2 - расход"})
-     */
-    private $operationType;
-
-    const TYPE_INCOME = 1;
-    const TYPE_EXPENDITURE = 2;
 
     /**
      * Transaction constructor.
@@ -120,22 +112,6 @@ class Transaction
     public function setComment(string $value) : void
     {
         $this->comment = $value;
-    }
-
-    /**
-     * @return int
-     */
-    public function getOperationType() : int
-    {
-        return $this->operationType;
-    }
-
-    /**
-     * @param int $value
-     */
-    public function setOperationType(int $value) : void
-    {
-        $this->operationType = $value;
     }
 
     /**
